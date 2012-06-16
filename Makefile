@@ -19,12 +19,19 @@ GOFILES = ./Backend/src/AccessControlList.go \
 	./Backend/src/UpdateManager.go \
 	./Backend/src/WebFrontend.go
 
+all: backend ./Tests/testgenerator graph_tools
+
 backend: ./Backend/bin/cobweb_backend
 
-clean: clean_test
-	rm -v ./Backend/bin/cobweb_backend; true
+clean: clean_test clean_graph
+	rm -rv ./Backend/bin; true
+
+clean_graph:
+	rm ./SocialGraph/*.gob ./SocialGraph/*.png ; true
+	rm ./SocialGraph/computeAvailability ./SocialGraph/computeRedundancy ./SocialGraph/generateGraph; true
 
 ./Backend/bin/cobweb_backend: $(GOFILES)
+	mkdir -p ./Backend/bin
 	go build -x -o ./Backend/bin/cobweb_backend $(GOFILES)
 
 ./Tests/testgenerator: ./Tests/generatetest.go
@@ -47,4 +54,13 @@ run_test:
 test_shell:
 	cd ./Tests/clients/client0000 && ../../client.sh 10000
 
+
+graph_tools: ./SocialGraph/generateGraph ./SocialGraph/computeAvailability ./SocialGraph/computeRedundancy
+
+./SocialGraph/generateGraph: ./SocialGraph/generateGraph.go
+	go build -x -o ./SocialGraph/generateGraph ./SocialGraph/generateGraph.go
+./SocialGraph/computeAvailability: ./SocialGraph/computeAvailability.go
+	go build -x -o ./SocialGraph/computeAvailability ./SocialGraph/computeAvailability.go
+./SocialGraph/computeRedundancy: ./SocialGraph/computeRedundancy.go
+	go build -x -o ./SocialGraph/computeRedundancy ./SocialGraph/computeRedundancy.go
 

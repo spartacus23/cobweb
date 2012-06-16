@@ -23,7 +23,7 @@ var AnzFriends *int64 = flag.Int64("friends", 6, "Anzahl freunde pro plotter.Poi
 var FriendClusterBreite *float64 = flag.Float64("frienddev", 150.0, "Breite der Clusters um den Freund")
 
 var Count *int64 = flag.Int64("count", 1, "Anzahl zu generierender Testfälle")
-var Show *bool = flag.Bool("show", true, "Show the image?")
+var Show *bool = flag.Bool("show", false, "Show the image?")
 
 func CreateClusterCenter(max float64) (float64, float64) {
 	x := rand.NormFloat64()*(max/4) + (max / 2)
