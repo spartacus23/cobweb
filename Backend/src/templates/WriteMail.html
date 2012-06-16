@@ -1,0 +1,41 @@
+<!DOCTYPE html> 
+<html> 
+	<head> 
+	<title>Write Mail</title> 
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
+	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+</head> 
+<body> 
+
+<div data-role="page">
+	<div data-role="header">
+		<a data-rel="back" href=/>Back</a>
+		<h1>CobWeb Write Mail</h1>
+		<a href=/>Dismiss</a>
+	</div><!-- /header -->
+	<div data-role="content">
+		<form action="/sendmail/" method="POST">
+			<div>
+				<div data-role="fieldcontain">
+					<label for="target">Target:</label>
+					<input type="text" name="target" id="target" value="{{.Target}}" />
+				</div>
+				<div data-role="fieldcontain">
+					<label for="subject">Subject:</label>
+					<input type="text" name="subject" id="subject" value=""  />
+				</div>
+				<div data-role="fieldcontain">
+					<label for="text">Text:</label>
+					<textarea name="text" id="text" rows="20" cols="80"></textarea>
+				</div>	
+			</div>
+			<div><input type="submit" value="Send"></div>
+		</form>	
+	</div><!-- /content -->
+</div><!-- /page -->
+</body>
+</html>
+
+

@@ -1,0 +1,8 @@
+#Cobweb configfile
+
+Port {{.Port}}
+FrontendPort {{.FrontendPort}}
+
+{{range .Nodes}}
+Node {{.Id}} {{.Host}} {{.Port}}
+{{end}}

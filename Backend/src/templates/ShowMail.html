@@ -1,0 +1,35 @@
+<!DOCTYPE html> 
+<html> 
+	<head> 
+	<title>ShowMail View</title> 
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
+	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+</head> 
+<body> 
+
+<div data-role="page">
+	<div data-role="header">
+		<a data-rel="back" href=/>Back</a>
+		<h1>CobWeb Show Mail</h1>
+	</div><!-- /header -->
+	<div data-role="content">
+		<ul data-role="listview" data-inset="true" data-filter="false">
+			<li> 
+				Sender: {{.Sender}}
+			</li>
+			<li> 
+				Subject: {{.Subject}}
+			</li>
+			<li> 
+				Time: {{.Time}}
+			</li>
+		</ul>
+		<textarea rows=20 cols=80>{{.Text}}</textarea>	
+	</div><!-- /content -->
+</div><!-- /page -->
+</body>
+</html>
+
+

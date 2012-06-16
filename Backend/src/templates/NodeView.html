@@ -1,0 +1,51 @@
+<!DOCTYPE html> 
+<html> 
+	<head> 
+	<title>Node View</title> 
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.css" />
+	<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.1.0/jquery.mobile-1.1.0.min.js"></script>
+</head> 
+<body> 
+
+<div data-role="page">
+	<div data-role="header">
+		<a data-rel="back" href=/>Back</a>
+		<h1>CobWeb Node List</h1>
+	</div><!-- /header -->
+	<div data-role="content">
+		<ul data-role="listview" data-inset="true" data-filter="true">
+			{{range .NodeList}}
+				<li>{{.NodeID}} {{.Hostname}}:{{.Port}} </li>
+			{{end}}
+		</ul>	
+		<form action="/savenode/" method="POST">
+			<div>
+				<div data-role="fieldcontain">
+					<label for="name">Name:</label>
+					<input type="text" name="name" id="name" value=""  />
+				</div>
+				<div data-role="fieldcontain">
+					<label for="host">Host:</label>
+					<input type="text" name="host" id="host" value=""  />
+				</div>
+				<div data-role="fieldcontain">
+					<label for="port">Port:</label>
+					<input type="text" name="port" id="port" value=""  />
+				</div>	
+			</div>
+			<div><input type="submit" value="Save"></div>
+		</form>
+		<form action="/deletenode/" method="POST">
+			<div data-role="fieldcontain">
+				<label for="name">Name:</label>
+				<input type="text" name="name" id="name" value=""  />
+			</div>
+			<div><input type="submit" value="Delete"></div>
+		</form>
+	</div><!-- /content -->
+</div><!-- /page -->
+</body>
+</html>
+
