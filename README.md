@@ -1,4 +1,4 @@
-cobweb
+CobWeb
 ======
+a secure and completely distributed social network
 
-Cobweb, a secure and completely distributed social network
